@@ -26,4 +26,12 @@ public class Staff extends Person {
     public void setAccountId(int accountId) {
         this.accountId = accountId;
     }
+
+    @Override
+    public String toString() {
+        return "Staff{" +
+                "salary=" + salary +
+                ", accountId=" + accountId +
+                '}';
+    }
 }

@@ -1,37 +1,48 @@
 package thuvien;
 
+import java.util.Date;
+
 public class Borrow {
     public boolean status;
-    public int dateBorrow;
-    public int dateReturn;
+    public Date dateBorrow;
+    public Date dateReturn;
 
-    public Borrow(boolean status, int dateBorrow, int dateReturn){
+    public Borrow(boolean status, Date dateBorrow, Date dateReturn){
         this.status = status;
         this.dateBorrow = dateBorrow;
         this.dateReturn = dateReturn;
     }
 
-    public void setDateBorrow(int dateBorrow) {
-        this.dateBorrow = dateBorrow;
+    public boolean isStatus() {
+        return status;
     }
 
-    public int getDateBorrow() {
+    public Date getDateBorrow() {
         return dateBorrow;
     }
 
-    public int getDateReturn() {
+    public Date getDateReturn() {
         return dateReturn;
-    }
-
-    public void setDateReturn(int dateReturn) {
-        this.dateReturn = dateReturn;
-    }
-
-    public boolean getStatus() {
-        return status;
     }
 
     public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    public void setDateBorrow(Date dateBorrow) {
+        this.dateBorrow = dateBorrow;
+    }
+
+    public void setDateReturn(Date dateReturn) {
+        this.dateReturn = dateReturn;
+    }
+
+    @Override
+    public String toString() {
+        return "Borrow{" +
+                "status=" + status +
+                ", dateBorrow=" + dateBorrow +
+                ", dateReturn=" + dateReturn +
+                '}';
     }
 }

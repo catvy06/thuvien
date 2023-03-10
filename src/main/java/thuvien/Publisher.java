@@ -55,20 +55,14 @@ public class Publisher {
         this.phone = phone;
     }
 
-    private Publisher[] publishers;
-    public void addPublisher(Publisher publisher){
-        int index = -1;
-        for (int i =0; i< publishers.length; i++){
-            if (publishers[i] == null){
-                index = i;
-                break;
-            }
-        }
-
-        if (index != -1) {
-            publishers[index] = publisher;
-        } else {
-            System.out.println("Is full");
-        }
+    @Override
+    public String toString() {
+        return "Publisher{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }
