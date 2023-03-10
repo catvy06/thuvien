@@ -92,7 +92,7 @@ public class Book {
         this.quantity = quantity;
     }
 
-    public void nhap(){
+    public Book nhap(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter id: ");
         int id = scanner.nextInt();
@@ -114,6 +114,7 @@ public class Book {
         int catalogid = scanner.nextInt();
 
         Book book = new Book(id,title,authorid,publisherid,catalogid,year,status,quantity);
+        return book;
     }
 
     @Override
