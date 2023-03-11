@@ -7,7 +7,7 @@ public class Main {
         ManagerBook managerBook = new ManagerBook();
 //        Book book = new Book(4,"Book4",1,1,1,"2001","true",5);
         Book[] books = managerBook.add();
-        managerBook.xuat(books);
+        managerBook.save(books);
 
 //        Book book = new Book(4,"Book4","Minh Hêu","NXB3",8,true);
 //        library.updateBook(book);

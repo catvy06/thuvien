@@ -1,0 +1,2 @@
+Book{id=1, title='Book1', authorid=1, publisherid=2, catalogid=1, year='2012', status=true, quantity=1}
+Book{id=2, title='Book2', authorid=3, publisherid=1, catalogid=2, year='2006', status=true, quantity=2}
