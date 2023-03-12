@@ -12,28 +12,4 @@ public class Member extends Person{
         this.numBorrowedBooks = 0;
     }
 
-//    public void addborrowBook(Book book){
-//        if (numBorrowedBooks<borrowedBooks.length){
-//                borrowedBooks[numBorrowedBooks] = book;
-//                numBorrowedBooks++;
-//        } else {
-//            System.out.println("Cannot borrow more books.");
-//        }
-//    }
-
-
-
-//    public void returnBook(Book book){
-//        for (int i = 0; i < numBorrowedBooks; i++){
-//            if (borrowedBooks[i].equals(book)){
-//                borrowedBooks[i]=null;
-//                numBorrowedBooks--;
-//                for (int j = i; j> numBorrowedBooks; j++){
-//                    borrowedBooks[j]=borrowedBooks[j+1];
-//                }
-//                borrowedBooks[numBorrowedBooks] = null;
-//                break;
-//            }
-//        }
-//    }
 }
