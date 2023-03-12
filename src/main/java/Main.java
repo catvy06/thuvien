@@ -1,20 +1,45 @@
 import thuvien.*;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args){
-        ManagerBook managerBook = new ManagerBook();
-//        Book book = new Book(4,"Book4",1,1,1,"2001","true",5);
-        Book[] books = managerBook.add();
-        managerBook.save(books);
 
-//        Book book = new Book(4,"Book4","Minh Hêu","NXB3",8,true);
-//        library.updateBook(book);
-//        Book book = library.searchBookById(1);
-//        System.out.println(book.getId());
-//        Member member = library.searchMemberById(1);
-//        System.out.println(member.getId());
-//        library.borrowBook(book,member);
+    public static void chay(){
+        luachon();
+        Scanner scanner = new Scanner(System.in);
+        int chon = scanner.nextInt();
+        switch (chon){
+            case 1: {
+                ManagerBook managerBook = new ManagerBook();
+                Book[] books = managerBook.add();
+                managerBook.save(books);
+                chay();
+            }
+            case 2: {
+                System.out.println("Đang cập nhật!!!!!");
+                System.exit(0);
+            }
+            case 5: {
+                ManagerBook managerBook = new ManagerBook();
+                managerBook.getAll();
+            }
+            case 7: {
+                System.exit(0);
+            }
+        }
+    }
+
+    public static void luachon(){
+        System.out.println("1. Thêm sách.");
+        System.out.println("2. Cập nhật sách");
+        System.out.println("3. Xóa sách");
+        System.out.println("4. Mượn sách");
+        System.out.println("5. Xem danh sách các đầu sách");
+        System.out.println("6. Xem danh sách tác giả");
+        System.out.println("7. Đóng");
+    }
+    public static void main(String[] args){
+        chay();
     }
 }

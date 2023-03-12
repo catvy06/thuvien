@@ -1,9 +1,9 @@
 package thuvien;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import netscape.javascript.JSObject;
+import org.json.JSONObject;
+
+import java.io.*;
 import java.util.Scanner;
 
 import static thuvien.WriteFile.pathFile;
@@ -35,8 +35,8 @@ public class ManagerBook {
                 fileWriter.close();
                 System.out.println("Book added successfully.");
             } else {
-                bufferedWriter.newLine();
                 for (int i = 0; i<books.length; i++){
+                    bufferedWriter.newLine();
                     bufferedWriter.write(books[i].toString());
                 }
                 bufferedWriter.close();
@@ -50,6 +50,22 @@ public class ManagerBook {
     public void xuat(Book[] books){
         for (int i = 0; i< books.length; i++){
             System.out.println(books[i].toString());
+        }
+    }
+
+    public void getAll(){
+        try {
+            File file = new File(pathFile("ManagerBook.txt"));
+            FileReader fileReader = new FileReader(file);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+            String line;
+            while ((line = bufferedReader.readLine())!=null){
+                System.out.println(line);
+            }
+
+        } catch (IOException exception){
+            System.out.println(exception);
         }
     }
 }
