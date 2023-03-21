@@ -1,10 +1,13 @@
 package thuvien;
 
+import java.util.Scanner;
+
 public class Staff extends Person {
 
     public int salary;
     public int accountId;
 
+    public Staff(){}
     public Staff(int id, String name, String address, String phone, String email, int salary, int accountId) {
         super(id, name, address, phone, email);
         this.salary = salary;

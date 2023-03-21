@@ -1,9 +1,13 @@
 package thuvien;
 
-public abstract class Category {
+import java.util.Scanner;
+
+public class Category {
     public int id;
     public String name;
     public boolean status;
+
+    public Category() {}
 
     public Category(int id, String name, boolean status){
         this.id = id;
@@ -35,6 +39,14 @@ public abstract class Category {
         return status;
     }
 
+    public void nhap(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Nhap id category: ");
+        id = scanner.nextInt();
+        scanner.nextLine();
+        System.out.print("Nhap ten category: ");
+        name = scanner.nextLine();
+    }
     @Override
     public String toString() {
         return "Category{" +

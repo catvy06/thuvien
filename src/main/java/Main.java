@@ -1,45 +1,29 @@
-import thuvien.*;
-
-import java.sql.SQLOutput;
-import java.util.Scanner;
+import Configs.IService;
+import Scener.*;
+import Service.IAccount;
+import Service.IBook;
+import Service.ICategory;
+import Service.Implements.AccountService;
+import Service.Implements.BookService;
+import Service.Implements.CategoryService;
+import thuvien.Book;
 
 public class Main {
-
-    public static void chay(){
-        luachon();
-        Scanner scanner = new Scanner(System.in);
-        int chon = scanner.nextInt();
-        switch (chon){
-            case 1: {
-                ManagerBook managerBook = new ManagerBook();
-                Book[] books = managerBook.add();
-                managerBook.save(books);
-                chay();
-            }
-            case 2: {
-                System.out.println("Đang cập nhật!!!!!");
-                System.exit(0);
-            }
-            case 5: {
-                ManagerBook managerBook = new ManagerBook();
-                managerBook.getAll();
-            }
-            case 7: {
-                System.exit(0);
-            }
+    private SceneBook bookScener;
+    private IBook iBook = (BookService) new IService(IBook.class, BookService.class).AddScoped();
+    private IAccount iAccount = (AccountService) new IService(IAccount.class, AccountService.class).AddScoped();
+    //    private ICategory iCategory = (CategoryService) new IService(ICategory.class, CategoryService.class).AddScoped();
+    public void chay(){
+        //if(bookScener == null) bookScener = new SceneBook(iBook);
+        Scene scene = Scene.getInstance();
+        SceneAccount sceneBook = new SceneAccount(iAccount);
+        while (true){
+            new Menu().display(0);
         }
-    }
+        //scene.display(0);
 
-    public static void luachon(){
-        System.out.println("1. Thêm sách.");
-        System.out.println("2. Cập nhật sách");
-        System.out.println("3. Xóa sách");
-        System.out.println("4. Mượn sách");
-        System.out.println("5. Xem danh sách các đầu sách");
-        System.out.println("6. Xem danh sách tác giả");
-        System.out.println("7. Đóng");
     }
     public static void main(String[] args){
-        chay();
+        new Main().chay();
     }
 }

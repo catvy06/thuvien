@@ -1,27 +1,33 @@
 package thuvien;
 
+import Manager.BookManager;
+import Utils.ArrayListCustom;
+
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.Scanner;
 
 import static thuvien.WriteFile.pathFile;
 
-public class Book {
+public class Book implements Serializable {
     private int id;
     private String title;
     private int authorid;
-    private int publisherid;
+    private int supplierid;
     private int catalogid;
+
+    private Category category;
     private String year;
     private String status;
     private int quantity;
 
     public Book (){}
-    public Book(int id, String title, int authorid, int publisherid, int catalogid, String year, String status, int quantity) {
+    public Book(int id, String title, int authorid, int supplierid, int catalogid, String year, String status, int quantity) {
         this.id = id;
         this.title = title;
         this.authorid = authorid;
-        this.publisherid = publisherid;
+        this.supplierid = Book.this.supplierid;
         this.catalogid = catalogid;
         this.year = year;
         this.status = status;
@@ -60,12 +66,12 @@ public class Book {
         this.catalogid = catalogid;
     }
 
-    public int getPublisherid() {
-        return publisherid;
+    public int getSupplierid() {
+        return supplierid;
     }
 
-    public void setPublisherid(int publisherid) {
-        this.publisherid = publisherid;
+    public void setSupplierid(int supplierid) {
+        this.supplierid = Book.this.supplierid;
     }
 
     public String isStatus() {
@@ -92,29 +98,29 @@ public class Book {
         this.quantity = quantity;
     }
 
-    public Book nhap(){
+    public void nhap(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter id: ");
-        int id = scanner.nextInt();
+//        do {
+//
+//        }while (checkBookById(id));
+        System.out.print("Nhập id sách: ");
+        id = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("Enter title: ");
-        String title = scanner.nextLine();
-        System.out.print("Enter authorid: ");
-        int authorid = scanner.nextInt();
-        System.out.print("Enter publisherid: ");
-        int publisherid = scanner.nextInt();
-        System.out.println("Enter quantity: ");
-        int quantity = scanner.nextInt();
+        System.out.print("Nhập tên sách: ");
+        title = scanner.nextLine();
+        System.out.print("Nhập id tác giả: ");
+        authorid = scanner.nextInt();
+        System.out.print("Nhập id nhà sản xuất: ");
+        supplierid = scanner.nextInt();
+        System.out.println("Nhập số lượng: ");
+        quantity = scanner.nextInt();
         scanner.nextLine();
-        System.out.println("Enter year: ");
-        String year = scanner.nextLine();
-        System.out.println("Enter status: ");
-        String status = scanner.nextLine();
-        System.out.println("Enter catalogid: ");
-        int catalogid = scanner.nextInt();
-
-        Book book = new Book(id,title,authorid,publisherid,catalogid,year,status,quantity);
-        return book;
+        System.out.println("Nhập năm xuất bản: ");
+        year = scanner.nextLine();
+        System.out.println("Nhập trạng thái: ");
+        status = scanner.nextLine();
+        System.out.println("Nhập id danh mục: ");
+        catalogid = scanner.nextInt();
     }
 
     @Override
@@ -123,11 +129,18 @@ public class Book {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", authorid=" + authorid +
-                ", publisherid=" + publisherid +
+                ", supplierid=" + supplierid +
                 ", catalogid=" + catalogid +
                 ", year='" + year + '\'' +
                 ", status=" + status +
                 ", quantity=" + quantity +
                 '}';
     }
+
+//    public boolean checkBookById(int id, ArrayListCustom<Book> books){
+//        for(int i = 0 ; i < books.size() ; i++)
+//            if(books.get(i).getId() == id)
+//                return true;
+//        return false;
+//    }
 }

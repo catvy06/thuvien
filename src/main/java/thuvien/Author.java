@@ -35,6 +35,14 @@ public class Author {
         this.name = name;
     }
 
+    public void nhap(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Nhập id tác giả: ");
+        id = scanner.nextInt();
+        scanner.nextLine();
+        System.out.print("Nhập tên tác giả: ");
+        name = scanner.nextLine();
+    }
     @Override
     public String toString() {
         return "Author{" +
